@@ -61,7 +61,7 @@ void checkvad() {
         struct utsname u = { 0 };
         uname(&u);
         if (strcmp(u.version, "Darwin Kernel Version 16.3.0: Tue Nov 29 21:40:09 PST 2016; root:xnu-3789.32.1~4/RELEASE_ARM64_T7001") == 0) {
-            sz = 4096;
+            sz = 4096; // thanks to @NewDwarf
         }else{
             host_page_size(mach_host_self(), &sz);
         }
