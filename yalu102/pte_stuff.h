@@ -58,7 +58,14 @@ vm_size_t sz = 0;
 
 void checkvad() {
     if (!sz) {
-        host_page_size(mach_host_self(), &sz);
+        struct utsname u = { 0 };
+        uname(&u);
+        if (strcmp(u.version, "Darwin Kernel Version 16.3.0: Tue Nov 29 21:40:09 PST 2016; root:xnu-3789.32.1~4/RELEASE_ARM64_T7001") == 0) {
+            sz = 4096;
+        }else{
+            host_page_size(mach_host_self(), &sz);
+        }
+        
         assert(sz);
         if (sz == 4096) {
             isvad = 1;
