@@ -60,12 +60,20 @@ void checkvad() {
     if (!sz) {
         struct utsname u = { 0 };
         uname(&u);
+<<<<<<< HEAD
         if (strcmp(u.version, "Darwin Kernel Version 16.3.0: Tue Nov 29 21:40:09 PST 2016; root:xnu-3789.32.1~4/RELEASE_ARM64_T7001") == 0) {
             sz = 4096; // thanks to @NewDwarf
         }else{
             host_page_size(mach_host_self(), &sz);
         }
         
+=======
+        host_page_size(mach_host_self(), &sz);
+        NSLog(@"checkvad: %x %x", sz, getpagesize());
+        if (strstr(u.machine, "iPad5,") == u.machine) {
+            sz = 4096; // this is 4k but host_page_size lies to us
+        }
+>>>>>>> 11ed504bad945f95b4372469dcf9e7e43a938aac
         assert(sz);
         if (sz == 4096) {
             isvad = 1;
