@@ -29,10 +29,6 @@ In the near future, the jailbreak will support the following devices:
 
 | Device | Version |
 |---------|----------|
-<<<<<<< HEAD
-| iPad Mini 4 | iOS 10.0.0 -> iOS 10.2 |
-=======
->>>>>>> 11ed504bad945f95b4372469dcf9e7e43a938aac
 | iPhone 7  | iOS 10.0.0 -> iOS 10.1.1 |
 
 **Note, the iPhone 7 is only supported till iOS 10.1.1**
